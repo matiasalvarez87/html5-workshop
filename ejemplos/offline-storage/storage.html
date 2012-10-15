@@ -1,0 +1,103 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Web Storage Example</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="../libs/css/style.css">
+  <link rel="stylesheet" href="../libs/css/gl-style.css">
+
+  <script src="../libs/js/libs/modernizr-2.5.3.min.js"></script>
+
+</head>
+<body>
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+  <header>
+    <h1>Web Storage Example</h1>
+  </header>
+
+  <div role="main">
+
+    <h1>Agregar Tareas</h1>
+    <form>
+        <label>Tarea</label>
+        <input id="taskInput" type="text">
+        <button id="addBtn">Agregar</button>
+    </form>
+
+    <h1>Tareas</h1>
+    <ul id="tasksList"></ul>
+
+    <button id="deleteAllBtn">Borrar Todos</button>
+
+  </div>
+
+  <footer class="clearfix">
+    <p>HTML5 WorkShop - Global Logic 2012</p>
+  </footer>
+
+  <script src="../libs/js/libs/jquery-1.7.1.min.js"></script>
+  <script>
+
+    var StorageManager = function(options) {
+      options || (options = {});
+    };
+
+    $.extend(StorageManager.prototype, {
+
+      init: function() {
+        this.storage = window.localStorage;
+        this.refresh();
+      },
+
+      readTasks: function() {
+        this.json = JSON.parse(this.storage.getItem('tasks'));
+      },
+
+      addHandler: function(e) {
+        var tasks = new Array();
+        if (this.json) {
+          tasks = this.json.tasks;
+        }
+        tasks.push($('#taskInput').val());
+        this.storage.setItem('tasks', JSON.stringify({tasks: tasks}));
+        this.refresh();
+        return false; // para prevenir el handler por defecto del elemento button, el cual refresca la pagina
+      },
+
+      deleteAllHandler: function(e) {
+        this.storage.removeItem('tasks');
+        this.refresh();
+      },
+
+      refresh: function() {
+        this.readTasks();
+
+        if (this.json) {
+          var ul = $('#tasksList');
+          ul.children().remove();
+
+          $.each(this.json.tasks, function(idx, value) { 
+            ul.append('<li>' + value + '</li>');
+          }); 
+        }
+      }
+    });
+
+    $(function(){ // Cuando se termina de cargar el DOM, se inicializa el storage manager
+      var storageManager = new StorageManager();
+      storageManager.init();
+      $('#addBtn').click($.proxy(storageManager.addHandler, storageManager));
+      $('#deleteAllBtn').click($.proxy(storageManager.deleteAllHandler, storageManager));
+    });
+
+  </script>
+</body>
+</html>

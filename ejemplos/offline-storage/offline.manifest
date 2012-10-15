@@ -1,0 +1,16 @@
+CACHE MANIFEST
+# Version: 17
+
+# CACHE
+favicon.ico
+offline.html
+css/style.css
+css/gl-style.css
+js/libs/modernizr-2.5.3.min.js
+js/libs/jquery-1.7.1.js
+js/Events.js
+js/AjaxManager.js
+img/logo-gl.png
+
+NETWORK:
+*

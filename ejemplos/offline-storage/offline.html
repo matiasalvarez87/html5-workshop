@@ -1,0 +1,63 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" manifest="/ejemplos/offline.manifest"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Offline Example</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link href="favicon.ico" rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" href="../libs/css/style.css">
+  <link rel="stylesheet" href="../libs/css/gl-style.css">
+
+  <script src="../libs/js/libs/modernizr-2.5.3.min.js"></script>
+
+</head>
+<body>
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+  <header>
+    <h1>Offline Example</h1>
+  </header>
+
+  <div role="main">
+
+    <div id="data-loaded">
+    </div>
+    
+    <button id="loadData1">Load 1</button>
+    <button id="loadData2">Load 2</button>
+    <button id="loadData3">Load 3</button>
+
+  </div>
+
+  <footer class="clearfix">
+    <p>HTML5 WorkShop - Global Logic 2012</p>
+    <span id="logo"></span>
+  </footer>
+
+  <script src="../libs/js/libs/jquery-1.7.1.js"></script>
+  <script src="../libs/js/Events.js"></script>
+  <script src="../libs/js/AjaxManager.js"></script>
+  <script>
+
+    $(function() {
+        var ajax = new AjaxManager();
+
+        ajax.on('ajax:offline', function() { alert('You are offline!!!'); });
+        ajax.on('ajax:success', function(data) { $('#data-loaded').html( JSON.stringify(data) ); });
+        ajax.on('ajax:error', function(info) { console.log('ERROR: ' + info.msg); });
+        ajax.on('ajax:complete', function() { console.log('Se finalizo la peticion'); });
+
+        $('#loadData1').click( function() { ajax.get( {url: 'data.json', data: {opt: 'A', param2: 'someValue'}} ); } );
+        $('#loadData2').click( function() { ajax.get( {url: 'data-malformed.json'} ); } );
+        $('#loadData3').click( function() { ajax.get( {url: 'data2.json'} ); } );
+    });
+
+  </script>
+</body>
+</html>

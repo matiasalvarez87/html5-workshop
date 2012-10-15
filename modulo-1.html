@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>HTML5 - Modulo 1</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='slides/slides.js'></script>
+  </head>
+  
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-gl'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+      <article class='biglogo'>
+      </article>
+
+      <article class='fill right'>
+        <h1>
+          &lt;!DOCTYPE html>
+        </h1>
+		<p><b>M&oacute;dulo 1</b>: Introducción a HTML5</p>
+        <p>
+          <img src='slides/images/html5-background.png'>
+		  <span style='font-size: 0.8em;'>
+			  <br>
+			  Julian Alessandro
+			  <br>
+			  Matias Alvarez Duran
+			  <br>
+			  <br>
+		  </span>
+          <span style='font-size: 0.6em;'>Octubre, 2012</span>
+        </p>
+      </article>
+
+      <article>
+        <h3>
+          Agenda
+        </h3>
+        <ul>
+          <li>Que es HTML5?</li>
+		  <li>Features</li>
+		  <li>State of the Art</li>
+		  <li>Evoluci&oacute;n</li>
+		  <li>Doctypes</li>
+		  <li>XHTML</li>
+		  <li>Modernizer</li>
+        </ul>
+      </article>
+	  
+	  <article>
+        <h3>
+          Que es HTML5?
+        </h3>
+        <p style="text-align: center;">
+          <img src="slides/images/html5.png" />
+        </p>
+      </article>
+      
+	  <article class='smaller'>
+        <h3>
+          Que es HTML5?
+        </h3>
+        <section>
+<pre>
+&lt;!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Old HTML ¬¬&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt; ... &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML5&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt; ... &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+		<p style="text-align: center;">
+			<b>Con solo cambiar el DOCTYPE, actualizamos a HTML5 !!! </b>
+		</p>
+        </section>
+      </article>
+
+      <article class="article-with-sublist">
+        <h3>
+          Features
+        </h3>
+		<ul class="build">
+          <li><b>Offline</b></li>
+		  <ul>
+			<li>Application Cache, Local Storage, Web SQL, Indexed DB, Online/Offline events</li>
+		  </ul>
+		  <li><b>Storage</b></li>
+		  <ul>
+			<li>File Access API</li>
+		  </ul>
+		  <li><b>Connectivity</b></li>
+		  <ul>
+			<li>WebSockets, Server-Sent Events</li>
+		  </ul>
+		  <li><b>File Access</b></li>
+		  <ul>
+			<li>Native Drag & Drop, Dragging Files</li>
+		  </ul>
+        </ul>
+      </article>
+	  
+	  <article class="article-with-sublist">
+        <h3>
+          Features
+        </h3>
+        <ul class="build">
+		  <li><b>Semantics</b></li>
+		  <ul>
+			<li>Form Fields, Microdata, Semantic Markup</li>
+		  </ul>
+		  <li><b>Multimedia</b></li>
+		  <ul>
+			<li>Audio, Video</li>
+		  </ul>
+		  <li><b>3D / Graphics</b></li>
+		  <ul>
+			<li>2D Canvas, WebGL, SVG, 3D CSS transforms, and SMIL</li>
+		  </ul>
+		  <li><b>Presentation</b></li>
+		  <ul>
+			<li>2D Transformations, Transitions, 3D Transforms and WebFonts</li>
+		  </ul>
+        </ul>
+      </article>
+	  
+	  <article class='fill'>
+        <h3>
+          State of The Art
+        </h3>
+        
+        <iframe src='http://html5readiness.com/'></iframe>
+      </article>
+	  
+	  <article  class='fill'>
+        <h3>
+          Evoluci&oacute;n
+        </h3>
+        
+        <iframe src='http://embed.verite.co/timeline/?source=0An6a9wpeFnYydGVWTndHV1pNSUxDdnpkamI3VzRFY0E&font=Bevan-PotanoSans&maptype=toner&lang=es&width=900&height=650' width='900' height='650' frameborder='0'></iframe>
+      </article>
+	  
+	  <article>
+        <h3>
+          Doctypes
+        </h3>
+        <p>
+			<br>
+			Los navegadores tienen varios motores de renderizaci&oacute;n.
+			<br>
+			Esto les permite renderizar:
+			<br><br>
+			<ul>
+				<li>Contenido HTML5</li>
+				<li>Contenido con versiones antiguas de HTML</li>
+			</ul>
+			<br><br>
+			<b>Los 'Doctypes' activan cada motor seg&uacute;n corresponda.</b>
+        </p>
+      </article>
+
+	  <article class="article-with-sublist">
+        <h3>
+          Doctypes - Tipos
+        </h3>
+		<ul>
+			<li><b>Quirks Mode</b></li>
+			<ul>
+				<li>Se ignora el formato contemporaneo de la Web para poder renderizar paginas hechas en los 90’s</li>
+			</ul>
+			<li><b>Standards Mode</b></li>
+			<ul>
+				<li>Los documentos son manejados utilizando los últimos standards que contiene el navegador. En HTML5 este modo se llama “Sin quirks”</li>
+			</ul>
+			<li><b>Almost Standards Mode</b></li>
+			<ul>
+				<li>Se creó para tratar una particularidad en el manejo de las tablas en CSS2 en los navegadores modernos (Firefox, Safari, Chrome, Opera (since 7.5) e IE8)</li>
+			</ul>
+		</ul>
+      </article>
+	  
+      <article>
+        <h3>
+          Doctypes - Efectos
+        </h3>
+        <p>
+		  <br>
+          La utilización de uno u otro modo puede afectar de diferentes maneras el renderizado:
+		  <br><br>
+		  <ul>
+			<li><b>Layout</b></li>
+			<li><b>Parsing</b></li>
+			<li><b>Scripting</b></li>
+		  </ul>
+        </p>
+      </article>
+	  
+	  <article>
+        <h3>
+          XHTML
+        </h3>
+        <ul>
+            <li>Después de HTML 4.01 se incorporó la rigurosidad de XML</li>
+            <li>Los browsers no debían tratar de arreglar los errores de estructura, <span class='red'>debían fallar</span></li>
+            <li>Más del 90% de las páginas, tienen errores de marcado</li>
+            <li><span class='red'><b>SE VOLVIO IMPOSIBLE MIGRAR!!!</b></span></li>
+            <li><span class='green'><b>Nació HTML5</b></span></li>
+        </ul>
+    </article>
+	  
+	  <article>
+        <h3>
+          Modernizer
+        </h3>
+		<ul>
+			<br>
+			<li>Pequeña librería JavaScript que utiliza la técnica llamada <b>'Feature Detection'</b>.</li>
+			<li>Detecta si el browser posee implementaciones nativas de tecnologías modernas.</li>
+			<br>
+			<li><span class='red'><b>User Agent sniffing</b></span></li>
+			<li><span class='green'><b>Feature Detection</b></span></li>
+		</ul>
+      </article>
+	  
+	  <article>
+        <h3>
+          Modernizer - Funcionamiento
+        </h3>
+    		<ul>
+    			<br>
+    			<li>Testea más de 40 features modernos</li>
+    			<li>Crea un objeto JavaScript que contiene los resultados de los tests</li>
+    			<li>Permite crear los nuevos elementos de HTML5, actualizando browsers antiguos</li>
+          <li>Provee un script loader para cargar <b>polyfills</b></li>
+    		</ul>
+    </article>
+
+    <article class='smaller'>
+        <h3>
+          Modernizer - Polyfills
+        </h3>
+        <q>
+           A piece of code that provides the technology that you, the developer, expect the browser to provide natively.
+        </q>
+        <div class='author'>
+          Remy Sharp
+        </div>
+        <br><br>
+        <a href="http://remysharp.com/2010/10/08/what-is-a-polyfill/">http://remysharp.com/2010/10/08/what-is-a-polyfill/</a>
+    </article>
+
+        <article>
+        <h3>
+          Modernizer - Loader
+        </h3>
+        <section>
+          <br>
+<pre>
+Modernizr.load({
+  test: Modernizr.geolocation,
+  yep : 'geo.js',
+  nope: 'geo-polyfill.js'
+});
+</pre>
+        
+        <ul>
+            <li>Evita la descarga innecesaria de librerías</li>
+            <li><i>Modernizr.load</i> puede cargar scripts asincrónicamente o en paralelo</li>
+        </ul>
+        </section>
+      </article>
+      
+      <article class="smaller">
+        <h3>
+          Recursos y Ejemplos
+        </h3>
+        
+<pre>
+Modernizer: http://modernizr.com/docs/#installing
+  Polyfills:
+    https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills
+
+Web Sockets:
+  Musica Colaborativa:
+    http://labs.dinahmoe.com/plink/# 
+
+  Paint:
+    http://paintwith.me/
+    http://connorhd.co.uk/project/pixelatr/
+
+Multimedia:
+  Audio: 
+    http://www.html5rocks.com/en/tutorials/webaudio/games/
+
+  CSS3 Filter Effects:
+    http://html5-demos.appspot.com/static/css/filters/index.html
+
+  Video: 
+    http://www.html5rocks.com/en/tutorials/getusermedia/intro/
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Recursos y Ejemplos
+        </h3>
+        
+<pre>
+  WebGL (Canvas 3D):
+    http://disc.uncontrol.com/
+    http://www.satine.org/research/webkit/snowleopard/snowstack.html
+
+  Canvas 3D con Video:
+    http://craftymind.com/factory/html5video/CanvasVideo.html
+
+Presentations:
+  ImpressJS:
+    http://bartaz.github.com/impress.js/#/bored
+
+  Deck JS:
+    http://imakewebthings.com/deck.js/
+
+  Reveal JS:
+    http://lab.hakim.se/reveal-js
+
+HTML5 en YouTube:
+  http://www.youtube.com/html5
+</pre>
+      </article>
+
+
+      <article>
+        <h3>
+          Gracias!
+        </h3>
+        
+        <ul>
+          <li>
+            <a href='http://www.globallogic.com'>www.globallogic.com</a>
+          </li>
+        </ul>
+      </article>
+
+    </section>
+
+  </body>
+</html>
