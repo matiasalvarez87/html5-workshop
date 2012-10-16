@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style/css/bootstrap.css">
+    <link rel="stylesheet" href="style/css/style.css">
+  </head>
+  <body>
+    <h3>Carga de Persona</h3>
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="document">Documento:</label>
+        <div class="controls">
+          <!-- Este campo es obligatorio cuando se haga submit se valida que este cargado. -->
+          <input type="text" id="document" placeholder="Ingrese su Documento" pattern="\d+" required>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="cuit">CUIT:</label>
+        <div class="controls">
+          <!-- Este campo es de tipo texto con una expresion regular para validar su formato. -->
+          <input type="text" id="cuit" placeholder="##-########-#" pattern="\d{2}\-\d{8}\-\d{1}">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="name">Nombre:</label>
+        <div class="controls">
+          <input type="text" id="name" placeholder="Ingrese su Nombre">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="surname">Apellido:</label>
+        <div class="controls">
+          <input type="text" id="surname" placeholder="Ingrese su Apellido">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputEmail">Email:</label>
+        <div class="controls">
+          <!-- Este campo es de tipo e-mail, se valida el formato, si es incorrecto se marca. -->
+          <input type="email" id="inputEmail" placeholder="Ingrese su Email">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="age">Edad:</label>
+        <div class="controls">
+          <input type="number" id="age" placeholder="Ingrese su Edad">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="birthdate">Fecha de Nacimiento:</label>
+        <div class="controls">
+          <!-- Este campo es de tipo fecha, se muestra un date picker, el valor se guarda en formato ISO AAAA-MM-DD. -->
+          <input type="date" id="birthdate" placeholder="Ingrese su Fecha de Nacimiento">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="birthdate">Provincia:</label>
+        <div class="controls">
+          <!-- Este campo es de tipo texto, pero con un datalist, funciona como un autocompletar, el listado es indicativo no restrictivo. -->
+          <input type="text" id="province" list="provinces" placeholder="Ingrese su Provincia">
+          <datalist id="provinces">
+            <option value="Buenos Aires">
+            <option value="Capital Federal">
+            <option value="Catamarca">
+            <option value="Chaco">
+            <option value="Chubut">
+            <option value="Cordoba">
+            <option value="Corrientes">
+            <option value="Entre Rios">
+            <option value="Formosa">
+            <option value="Jujuy">
+            <option value="La Pampa">
+            <option value="La Rioja">
+            <option value="Mendoza">
+            <option value="Misiones">
+            <option value="Neuquen">
+            <option value="Rio Negro">
+            <option value="Salta">
+            <option value="San Juan">
+            <option value="San Luis">
+            <option value="Santa Cruz">
+            <option value="Santa Fe">
+            <option value="Santiago del Estero">
+            <option value="Tierra del Fuego">
+            <option value="Tucuman">    
+          </datalist>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn">Cancel</button>
+      </div>
+    </form>
+
+    <footer class="clearfix">
+      <p>HTML5 WorkShop - Global Logic 2012</p>
+      <span id="logo"></span>
+    </footer>
+
+    <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <script type="text/javascript" src="js/codigoForm.js"></script>
+  </body>
+</html>​
