@@ -9,12 +9,40 @@
       src='slides/slides.js'></script>
       <style type="text/css">
       @font-face {
-      font-family: 'CoolFont';
-      src: url('Fh_Faith.ttf');
-    }
+        font-family: 'CoolFont';
+        src: url('Fh_Faith.ttf');
+      }
 
       #caratula * {
-      font-family: 'CoolFont';
+        font-family: 'CoolFont';
+      }
+
+      #transicion-ejemplo {
+        transition: font-size 2s, color 2s;
+        -moz-transition: font-size 2s, color 2s; /* Firefox 4 */
+        -webkit-transition: font-size 2s, color 2s; /* Safari and Chrome */
+        -o-transition: font-size 2s, color 2s; /* Opera */
+        color: blue;
+      }
+      #transicion-ejemplo:hover {
+        color: red;
+        font-size: 60px;
+      }
+
+      #transformacion-ejemplo {
+        transition: width 2s, background-color 2s;
+        -moz-transition: width 2s, background-color 2s, -moz-transform 2s; /* Firefox 4 */
+        -webkit-transition: width 2s, background-color 2s, -webkit-transform 2s; /* Safari and Chrome */
+        -o-transition: width 2s, background-color 2s, -o-transform 2s; /* Opera */
+      }
+      #transformacion-ejemplo:hover {
+        width: 500px;
+        background-color: green;
+        transform:rotate(360deg);
+        -moz-transform:rotate(360deg); /* Firefox 4 */
+        -webkit-transform:rotate(360deg); /* Safari and Chrome */
+        -o-transform:rotate(360deg); /* Opera */
+
       }
     </style>
   </head>
@@ -188,11 +216,11 @@
           Transiciones y Estilos CSS3
         </h3>
         <ul>
-          <li>Nuevos y complejos selectores</li>
+          <li>Nuevos y complejos <a target="_blank" href="http://www.w3schools.com/cssref/css_selectors.asp">selectores</a></li>
           <li>Web Fonts: Permite agregar tipografías poco comunes</li>
           <li>Media Queries: Responsive Web Design</li>
-          <li>Transformaciones</li>
-          <li>Transiciones</li>
+          <li><a id="transicion-ejemplo" target="_blank" href="http://www.w3schools.com/css3/css3_transitions.asp">Transiciones</a></li>
+          <li id="transformacion-ejemplo"><a target="_blank" href="http://w3schools.com/cssref/css3_pr_transform.asp">Transformaciones</a></li>
           <li><b>Polyfill: </b><a target="_blank" href="http://selectivizr.com/">selectivizr</a></li>
           <li><b>Polyfill: </b><a target="_blank" href="https://github.com/pbakaus/transformie">Transformie</a></li>
           <li><b>Polyfill: </b><a target="_blank" href="https://github.com/scottjehl/Respond">Respond</a></li>
