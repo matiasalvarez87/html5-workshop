@@ -44,6 +44,7 @@
         <ul>
           <li>Revisitando HTML5</li>
     		  <li>Twitter Bootstrap</li>
+          <li>Modernizr</li>
     		  <li>Semantica y Formularios</li>
           <li>Offline</li>
     		  <li>Storage</li>
@@ -60,13 +61,12 @@
         <iframe src='modulo-1.html'></iframe>
       </article>
       
-	  <article>
+	    <article>
         <h3>
-          Twitter Bootstrap
+          <a target="_blank" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>
         </h3>
           <p>Librería que brinda un conjunto de componentes CSS/JS para desarrollar sitios HTML.</p>
-        
-          <p><b>Provee estilos para:</b></p>
+          <br>
           <ul>
             <li>Layouts</li>
             <li>Tipografías</li>
@@ -79,13 +79,26 @@
 
       <article>
         <h3>
+          <a target="_blank" href="http://modernizr.com/">Modernizr</a>
+        </h3>
+          <br><br>
+          <ul>
+            <li>Creación de tags HTML5 en browsers viejos</li>
+            <li>Permite utilizar fácilmente la técnica: Progressive Enhancement</li>
+            <li>Carga de polyfills y fallbacks condicionales</li>
+          </ul>
+      </article>
+
+      <article>
+        <h3>
           Semantica
         </h3>
+        <br><br>
         <ul>
           <li>Nuevos elementos para representar partes de una página</li>
           <li>Controles de audio/video nativos</li>
           <li>Controles para alfabetos particulares</li>
-          <li><b>Polyfill: </b><a href="http://modernizr.com/">modernizr</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://modernizr.com/">modernizr</a></li>
         </ul>
       </article>
 
@@ -93,11 +106,12 @@
         <h3>
           Formularios
         </h3>
+        <br><br>
         <ul>
           <li>Nuevos controles para formularios</li>
           <li>Nuevas formas de ingresar datos</li>
           <li>Se agregan nuevos atributos (placeholder, autofocus, etc.)</li>
-          <li><b>Polyfill: </b><a href="http://www.useragentman.com/blog/2010/07/27/cross-browser-html5-forms-using-modernizr-webforms2-and-html5widgets/">html5widgets</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://www.useragentman.com/blog/2010/07/27/cross-browser-html5-forms-using-modernizr-webforms2-and-html5widgets/">html5widgets</a></li>
         </ul>
       </article>
 
@@ -105,21 +119,28 @@
         <h3>
           Offline
         </h3>
+        <br><br>
         <ul>
           <li>Permite navegación offline</li>
           <li>Aumenta la velocidad de carga del sitio (recursos cacheados)</li>
           <li>Disminuye trafico de red y carga del server</li>
-          <li><b>Polyfill: </b><a href="http://code.google.com/p/html5-gears/">html5-gears</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://code.google.com/p/html5-gears/">html5-gears</a></li>
         </ul>
       </article>
 
-      <article>
+      <article class="smaller">
         <h3>
           Storage
         </h3>
+        <br><br>
         <ul>
-          <li>Almacenamiento del lado del cliente</li>
-          <li><b>Polyfill: </b><a href="http://pablotron.org/?cid=1557">Persist JS</a></li>
+          <li>Almacenamiento del lado del cliente (guardar, leer y buscar datos)</li>
+          <li><b>Sandboxed</b>: Las cuatro APIs de storage solo pueden utilizar datos de un solo origen (mismo protocolo, dominio y puerto)</li>
+          <li>Los browsers imponen <b>límites de almacenamiento</b> (el tamaño depende del mecanismo. Por defecto: 5MB Web Storage, 25MB Web SQL Database, Indexed Database prohibido)</li>
+          <li><b>Transacciones</b>: Aseguran la integridad de datos</li>
+          <li>Modos <b>síncronos</b> (modo bloqueante) y <b>asíncronos</b> (se crea un nuevo thread implícito)</li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://pablotron.org/?cid=1557">Persist JS</a></li>
+          <li><a target="_blank" href="http://www.html5rocks.com/en/tutorials/offline/storage/">Información detallada</a> de cada implementación</li>
         </ul>
       </article>
 
@@ -127,12 +148,13 @@
         <h3>
           File API
         </h3>
+        <br><br>
         <ul>
           <li>Drag & Drop nativo</li>
           <li>Drag & Drop de archivos</li>
           <li>FileReaders y FileWriters para lectura/escritura</li>
-          <li><b>Polyfill: </b><a href="https://github.com/Jahdrien/FileReader">FileReader</a></li>
-          <li><b>Polyfill: </b><a href="https://github.com/eligrey/FileSaver.js">FileSaver</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="https://github.com/Jahdrien/FileReader">FileReader</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="https://github.com/eligrey/FileSaver.js">FileSaver</a></li>
         </ul>
       </article>
 
@@ -141,9 +163,13 @@
           Web Sockets
         </h3>
         <ul>
-          <li>Provee comunicación Full-Suplex</li>
-          <li>Conexión TCP: mayor velocidad, confiable, mayor eficiencia</li>
-          <li><b>Polyfill: </b><a href="https://socket.io">Socket.IO</a></li>
+          <li>Provee <b>comunicación Full-Suplex</b></li>
+          <li><b>Conexión TCP</b>: mayor velocidad, confiable, mayor eficiencia</li>
+          <li>Permite comunicación con cualquier dominio (<b>cross origin communication</b>)</li>
+          <li>Problemas con algunos proxy servers que no soportan "upgrade" de conexiones HTTP</li>
+          <li>Se necesita cambiar el paradigma de desarrollo del back-end</li>
+          <li><b>Polyfill: </b><a target="_blank" href="socket.io">Socket.IO</a></li>
+          <li><a target="_blank" href="http://socket.io/#browser-support">Como funciona Socket.IO?</a></li>
         </ul>
       </article>
 
@@ -157,9 +183,9 @@
           <li>Media Queries: Responsive Web Design</li>
           <li>Transformaciones</li>
           <li>Transiciones</li>
-          <li><b>Polyfill: </b><a href="http://selectivizr.com/">selectivizr</a></li>
-          <li><b>Polyfill: </b><a href="https://github.com/pbakaus/transformie">Transformie</a></li>
-          <li><b>Polyfill: </b><a href="https://github.com/scottjehl/Respond">Respond</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://selectivizr.com/">selectivizr</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="https://github.com/pbakaus/transformie">Transformie</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="https://github.com/scottjehl/Respond">Respond</a></li>
         </ul>
       </article>
       
@@ -170,7 +196,7 @@
         
         <ul>
           <li>
-            <a href='http://www.globallogic.com'>www.globallogic.com</a>
+            <a target="_blank" href='http://www.globallogic.com'>www.globallogic.com</a>
         </ul>
       </article>
 
