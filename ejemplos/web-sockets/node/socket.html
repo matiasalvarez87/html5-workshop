@@ -26,6 +26,10 @@
 
   <div role="main">
 
+    <input type="text" id="domain" />
+    <button id="connectBtn">Conectar</button>
+    <br><br>
+
     <textarea id="msg2Send"></textarea>
     <button id="send">Tweet</button>
     <br>
@@ -43,28 +47,33 @@
   <script src="/socket.io/socket.io.js"></script>
 
   <script>
-    var socket = io.connect('http://localhost:8888');
+    function connect(domain) {
+      var socket = io.connect('http://' + domain + ':8888');
 
-    var msgs = $('#msgs');
+      var msgs = $('#msgs');
 
-    socket.on('allTweets', function (data) {
-      msgs.append('<li>' + data.msg + '</li>');
+      socket.on('allTweets', function (data) {
+        msgs.append('<li>' + data.msg + '</li>');
+      });
+
+      socket.on('updateTweets', function (data) {
+        msgs.append('<li>' + data.msg + '</li>');
+      });
+
+      $('#send').click(function() {
+        var msg2Send = $('#msg2Send').val();
+
+        if (msg2Send !== '') {      
+          socket.emit('newTweet', { msg: msg2Send });
+        } else {
+          alert('No se puede enviar un mensaje vacio');
+        }
+      });
+    }
+
+    $('#connectBtn').click(function() {
+      connect($('#domain').val());
     });
-
-    socket.on('updateTweets', function (data) {
-      msgs.append('<li>' + data.msg + '</li>');
-    });
-
-    $('#send').click(function() {
-      var msg2Send = $('#msg2Send').val();
-
-      if (msg2Send !== '') {      
-        socket.emit('newTweet', { msg: msg2Send });
-      } else {
-        alert('No se puede enviar un mensaje vacio');
-      }
-    });
-
   </script>
 
 </body>

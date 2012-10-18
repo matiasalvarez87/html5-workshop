@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="style/css/bootstrap.css">
+	<link rel="stylesheet" href="style/css/style.css">
+
+	<style type="text/css">
+	:invalid {background-color: red;}
+	</style>
+	
+</head>
+<body>
+	<form>
+		<input type="text" id="doc" pattern="\d+" required>
+		<input type="text" id="cuit" pattern="\d{2}\-\d{8}\-\d{1}" placeholder="CUIT">
+		<input type="text" id="aa" list="lala" autofocus>
+		<input type="url" id="aaaa" list="lala">
+		<datalist id="lala">
+			<option value="Roberto"></option>
+			<option value="Carlos"></option>
+		</datalist>
+		<input type="submit" class="btn btn-primary">
+	</form>
+</body>
+</html>

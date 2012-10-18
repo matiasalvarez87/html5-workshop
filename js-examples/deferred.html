@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML5 </title>
+    <meta charset='utf-8'>
+
+  </head> 
+  <body>
+  	<h1>jQuery Deferred Ejemplo</h1>
+
+    <ul id="list"></ul>
+
+    <p id="result"></p>
+
+    <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        var def = $.Deferred(), chain = def;
+        var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+        _.each(letters, function(letter) {
+          chain = someHandler(chain, letter);
+        });
+
+        chain.done(function () {
+          $('#result').html("All functions executed");
+        });
+
+        def.resolve();
+      });
+
+      function someHandler(chain, letter) {
+        return chain.pipe(function() {
+          $('#list').append("<li>" + letter + "</li>");
+        });
+      }
+    </script>
+  </body>
+</html>  

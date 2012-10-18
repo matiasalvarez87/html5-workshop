@@ -7,10 +7,12 @@
   <div id="holder"></div> 
   <p id="status">File API &amp; FileReader API not supported</p>
   <p>Drag an image from your desktop on to the drop zone above to see the browser read the contents of the file and use it as the background - without uploading the file to any servers.</p>
+  <p id="binaryString"></p>
 </article>
 <script>
 var holder = document.getElementById('holder'),
-    state = document.getElementById('status');
+    state = document.getElementById('status'),
+    binaryString = document.getElementById('binaryString');
 
 if (typeof window.FileReader === 'undefined') {
   state.className = 'fail';
@@ -33,6 +35,14 @@ holder.ondrop = function (e) {
   };
   console.log(file);
   reader.readAsDataURL(file);
+
+  var stringReader = new FileReader();
+  stringReader.onload = function (event) {
+    console.log(event.target);
+
+    binaryString.innerHTML = event.target.result;
+  };
+  stringReader.readAsArrayBuffer(file);
 
   return false;
 };
