@@ -1,0 +1,80 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Socket Example - Real Time Tweets</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link href="favicon.ico" rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/gl-style.css">
+
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+
+</head>
+<body>
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+  <header>
+    <h1>Socket Example - Real Time Tweets</h1>
+  </header>
+
+  <div role="main">
+
+    <input type="text" id="domain" />
+    <button id="connectBtn">Conectar</button>
+    <br><br>
+
+    <textarea id="msg2Send"></textarea>
+    <button id="send">Tweet</button>
+    <br>
+
+    <ul id="msgs"></ul>
+
+  </div>
+
+  <footer class="clearfix">
+    <p>HTML5 WorkShop - Global Logic 2012</p>
+    <span id="logo"></span>
+  </footer>
+
+  <script src="js/libs/jquery-1.7.1.js"></script>
+  <script src="js/libs/socket.io.js"></script>
+
+  <script>
+    function connect(domain) {
+      var socket = io.connect('http://' + domain + ':8999');
+
+      var msgs = $('#msgs');
+
+      socket.on('allTweets', function (data) {
+        msgs.append('<li>' + data.msg + '</li>');
+      });
+
+      socket.on('updateTweets', function (data) {
+        msgs.append('<li>' + data.msg + '</li>');
+      });
+
+      $('#send').click(function() {
+        var msg2Send = $('#msg2Send').val();
+
+        if (msg2Send !== '') {      
+          socket.emit('newTweet', { msg: msg2Send });
+        } else {
+          alert('No se puede enviar un mensaje vacio');
+        }
+      });
+    }
+
+    $('#connectBtn').click(function() {
+      connect($('#domain').val());
+    });
+  </script>
+
+</body>
+</html>

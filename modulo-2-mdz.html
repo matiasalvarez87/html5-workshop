@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>HTML5 - Modulo 2</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='slides/slides.js'></script>
+      <style type="text/css">
+      @font-face {
+        font-family: 'CoolFont';
+        src: url('Fh_Faith.ttf');
+      }
+
+      #caratula * {
+        font-family: 'CoolFont';
+      }
+
+      #webfont-ex {
+       font-family: 'CoolFont'; 
+      }
+
+      #transicion-ejemplo {
+        transition: font-size 2s, color 2s;
+        -moz-transition: font-size 2s, color 2s; /* Firefox 4 */
+        -webkit-transition: font-size 2s, color 2s; /* Safari and Chrome */
+        -o-transition: font-size 2s, color 2s; /* Opera */
+        color: blue;
+      }
+      #transicion-ejemplo:hover {
+        color: red;
+        font-size: 60px;
+      }
+
+      #transformacion-ejemplo {
+        transition: width 2s, background-color 2s;
+        -moz-transition: width 2s, background-color 2s, -moz-transform 2s; /* Firefox 4 */
+        -webkit-transition: width 2s, background-color 2s, -webkit-transform 2s; /* Safari and Chrome */
+        -o-transition: width 2s, background-color 2s, -o-transform 2s; /* Opera */
+      }
+      #transformacion-ejemplo:hover {
+        width: 500px;
+        background-color: green;
+        transform:rotate(360deg);
+        -moz-transform:rotate(360deg); /* Firefox 4 */
+        -webkit-transform:rotate(360deg); /* Safari and Chrome */
+        -o-transform:rotate(360deg); /* Opera */
+
+      }
+    </style>
+  </head>
+  
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-gl'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+      <article class='biglogo'>
+      </article>
+
+      <article id="caratula" class='fill right'>
+        <h1>
+          &lt;!DOCTYPE html>
+        </h1>
+		<p><b>HTML5</b> de Mendoza para el Mundo</p>
+        <p>
+          <img src='slides/images/html5-background.png'>
+		  <span style='font-size: 0.8em;'>
+			  <br>
+			  Julian Alessandro
+			  <br>
+			  Matias Alvarez Duran
+			  <br>
+			  <br>
+		  </span>
+          <span style='font-size: 0.6em;'>Octubre, 2012</span>
+        </p>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Agenda
+        </h3>
+        <ul>
+          <li>Que es HTML5?</li>
+          <li>Evoluci&oacute;n</li>
+          <li>Doctypes</li>
+          <li>Features</li>
+          <li>Modernizr</li>
+          <li>Twitter Bootstrap</li>
+          <li>Less CSS</li>
+          <li>Semantica y Formularios</li>
+          <li>Offline</li>
+          <li>Storage</li>
+          <li>File API</li>
+          <li>Web Sockets</li>
+          <li>Transiciones y Estilos CSS3</li>
+          <li>Recursos y Ejemplos</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Que es HTML5?
+        </h3>
+        <p style="text-align: center;">
+          <img src="slides/images/html5.png" />
+        </p>
+      </article>
+      
+      <article class='smaller'>
+        <h3>
+          Que es HTML5?
+        </h3>
+        <section>
+<pre>
+&lt;!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Old HTML ¬¬&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt; ... &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;HTML5&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt; ... &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    <p style="text-align: center;">
+      <b>Con solo cambiar el DOCTYPE, actualizamos a HTML5 !!! </b>
+    </p>
+        </section>
+      </article>
+
+      <article  class='fill'>
+        <h3>
+          Evoluci&oacute;n
+        </h3>
+        
+        <iframe src='http://embed.verite.co/timeline/?source=0An6a9wpeFnYydGVWTndHV1pNSUxDdnpkamI3VzRFY0E&font=Bevan-PotanoSans&maptype=toner&lang=es&width=900&height=650' width='900' height='650' frameborder='0'></iframe>
+      </article>
+
+      <article>
+        <h3>
+          Doctypes
+        </h3>
+        <p>
+      <br>
+      Los navegadores tienen varios motores de renderizaci&oacute;n.
+      <br>
+      Esto les permite renderizar:
+      <br><br>
+      <ul>
+        <li>Contenido HTML5</li>
+        <li>Contenido con versiones antiguas de HTML</li>
+      </ul>
+      <br><br>
+      <b>Los 'Doctypes' activan cada motor seg&uacute;n corresponda.</b>
+        </p>
+      </article>
+
+    <article class="article-with-sublist">
+        <h3>
+          Doctypes - Tipos
+        </h3>
+    <ul>
+      <li><b>Quirks Mode</b></li>
+      <ul>
+        <li>Se ignora el formato contemporaneo de la Web para poder renderizar paginas hechas en los 90’s</li>
+      </ul>
+      <li><b>Standards Mode</b></li>
+      <ul>
+        <li>Los documentos son manejados utilizando los últimos standards que contiene el navegador. En HTML5 este modo se llama “Sin quirks”</li>
+      </ul>
+      <li><b>Almost Standards Mode</b></li>
+      <ul>
+        <li>Se creó para tratar una particularidad en el manejo de las tablas en CSS2 en los navegadores modernos (Firefox, Safari, Chrome, Opera (since 7.5) e IE8)</li>
+      </ul>
+    </ul>
+      </article>
+
+      <article class="article-with-sublist">
+        <h3>
+          Features
+        </h3>
+    <ul class="build">
+          <li><b>Offline</b></li>
+      <ul>
+      <li>Application Cache, Local Storage, Web SQL, Indexed DB, Online/Offline events</li>
+      </ul>
+      <li><b>Storage</b></li>
+      <ul>
+      <li>File Access API</li>
+      </ul>
+      <li><b>Connectivity</b></li>
+      <ul>
+      <li>WebSockets, Server-Sent Events</li>
+      </ul>
+      <li><b>File Access</b></li>
+      <ul>
+      <li>Native Drag & Drop, Dragging Files</li>
+      </ul>
+        </ul>
+      </article>
+    
+    <article class="article-with-sublist">
+        <h3>
+          Features
+        </h3>
+        <ul class="build">
+      <li><b>Semantics</b></li>
+      <ul>
+      <li>Form Fields, Microdata, Semantic Markup</li>
+      </ul>
+      <li><b>Multimedia</b></li>
+      <ul>
+      <li>Audio, Video</li>
+      </ul>
+      <li><b>3D / Graphics</b></li>
+      <ul>
+      <li>2D Canvas, WebGL, SVG, 3D CSS transforms, and SMIL</li>
+      </ul>
+      <li><b>Presentation</b></li>
+      <ul>
+      <li>2D Transformations, Transitions, 3D Transforms and WebFonts</li>
+      </ul>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Modernizer
+        </h3>
+    <ul>
+      <br>
+      <li>Pequeña librería JavaScript que utiliza la técnica llamada <b>'Feature Detection'</b>.</li>
+      <li>Detecta si el browser posee implementaciones nativas de tecnologías modernas.</li>
+      <br>
+      <li><span class='red'><b>User Agent sniffing</b></span></li>
+      <li><span class='green'><b>Feature Detection</b></span></li>
+    </ul>
+      </article>
+
+      <article>
+        <h3>
+          Modernizr - Funcionamiento
+        </h3>
+        <ul>
+          <br>
+          <li>Testea más de 40 features modernos</li>
+          <li>Crea un objeto JavaScript que contiene los resultados de los tests</li>
+          <li>Permite crear los nuevos elementos de HTML5, actualizando browsers antiguos</li>
+          <li>Permite utilizar fácilmente la técnica: Progressive Enhancement</li>
+          <li>Carga de polyfills y fallbacks condicionales (script loader)</li>
+        </ul>
+    </article>
+
+    <article class='smaller'>
+        <h3>
+          Modernizr - Polyfills
+        </h3>
+        <q>
+           A piece of code that provides the technology that you, the developer, expect the browser to provide natively.
+        </q>
+        <div class='author'>
+          Remy Sharp
+        </div>
+        <br><br>
+        <a href="http://remysharp.com/2010/10/08/what-is-a-polyfill/">http://remysharp.com/2010/10/08/what-is-a-polyfill/</a>
+    </article>
+
+        <article>
+        <h3>
+          Modernizr - Loader
+        </h3>
+        <section>
+          <br>
+<pre>
+Modernizr.load({
+  test: Modernizr.geolocation,
+  yep : 'geo.js',
+  nope: 'geo-polyfill.js'
+});
+</pre>
+        
+        <ul>
+            <li>Evita la descarga innecesaria de librerías</li>
+            <li><i>Modernizr.load</i> puede cargar scripts asincrónicamente o en paralelo</li>
+        </ul>
+        </section>
+      </article>
+	        
+	    <article>
+        <h3>
+          <a target="_blank" href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>
+        </h3>
+          <p>Librería que brinda un conjunto de componentes CSS/JS para desarrollar sitios HTML.</p>
+          <br>
+          <ul>
+            <li>Layouts</li>
+            <li>Tipografías</li>
+            <li>Tablas</li>
+            <li>Formularios</li>
+            <li>Botones</li>
+            <li>Navegación</li>
+          </ul>
+      </article>
+
+      <article>
+        <h3>
+          <a target="_blank" href="http://lesscss.org">Less CSS</a>
+        </h3>
+          <p>Lenguaje dinámico que permite generar estilos CSS más rápido y sencillo</p>
+          <br>
+          <ul>
+            <li>Variables</li>
+            <li>Mixins</li>
+            <li>Reglas Anidadas</li>
+            <li>Funciones y Operaciones</li>
+          </ul>
+      </article>
+
+      <article>
+        <h3>
+          Semantica
+        </h3>
+        <br><br>
+        <ul>
+          <li>Nuevos elementos para representar partes de una página</li>
+          <li>Controles de audio/video nativos</li>
+          <li>Controles para alfabetos particulares</li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://modernizr.com/">modernizr</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Formularios
+        </h3>
+        <br><br>
+        <ul>
+          <li>Nuevos controles para formularios</li>
+          <li>Nuevas formas de ingresar datos</li>
+          <li>Se agregan nuevos atributos (placeholder, autofocus, etc.)</li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://www.useragentman.com/blog/2010/07/27/cross-browser-html5-forms-using-modernizr-webforms2-and-html5widgets/">html5widgets</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Offline
+        </h3>
+        <br><br>
+        <ul>
+          <li>Permite navegación offline</li>
+          <li>Aumenta la velocidad de carga del sitio (recursos cacheados)</li>
+          <li>Disminuye trafico de red y carga del server</li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://code.google.com/p/html5-gears/">html5-gears</a></li>
+        </ul>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Storage
+        </h3>
+        <br><br>
+        <ul>
+          <li>Almacenamiento del lado del cliente (guardar, leer y buscar datos)</li>
+          <li><b>Sandboxed</b>: Las cuatro APIs de storage solo pueden utilizar datos de un solo origen (mismo protocolo, dominio y puerto)</li>
+          <li>Los browsers imponen <b>límites de almacenamiento</b> (el tamaño depende del mecanismo. Por defecto: 5MB Web Storage, 25MB Web SQL Database, Indexed Database prohibido)</li>
+          <li><b>Transacciones</b>: Aseguran la integridad de datos</li>
+          <li>Modos <b>síncronos</b> (modo bloqueante) y <b>asíncronos</b> (se crea un nuevo thread implícito)</li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://pablotron.org/?cid=1557">Persist JS</a></li>
+          <li><a target="_blank" href="http://www.html5rocks.com/en/tutorials/offline/storage/">Información detallada</a> de cada implementación</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          File API
+        </h3>
+        <br><br>
+        <ul>
+          <li>Drag & Drop nativo</li>
+          <li>Drag & Drop de archivos</li>
+          <li>FileReaders y FileWriters para lectura/escritura</li>
+          <li><b>Polyfill: </b><a target="_blank" href="https://github.com/Jahdrien/FileReader">FileReader</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="https://github.com/eligrey/FileSaver.js">FileSaver</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Web Sockets
+        </h3>
+        <ul>
+          <li>Provee <b>comunicación Full-Suplex</b></li>
+          <li><b>Conexión TCP</b>: mayor velocidad, confiable, mayor eficiencia</li>
+          <li>Permite comunicación con cualquier dominio (<b>cross origin communication</b>)</li>
+          <li>Problemas con algunos proxy servers que no soportan "upgrade" de conexiones HTTP</li>
+          <li>Se necesita cambiar el paradigma de desarrollo del back-end</li>
+          <li><b>Polyfill: </b><a target="_blank" href="socket.io">Socket.IO</a></li>
+          <li><a target="_blank" href="http://socket.io/#browser-support">Como funciona Socket.IO?</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Transiciones y Estilos CSS3
+        </h3>
+        <ul>
+          <li>Nuevos y complejos <a target="_blank" href="http://www.w3schools.com/cssref/css_selectors.asp">selectores</a></li>
+          <li id="webfont-ex">Web Fonts: Permite agregar tipografías poco comunes</li>
+          <li>Media Queries: Responsive Web Design</li>
+          <li><a id="transicion-ejemplo" target="_blank" href="http://www.w3schools.com/css3/css3_transitions.asp">Transiciones</a></li>
+          <li id="transformacion-ejemplo"><a target="_blank" href="http://w3schools.com/cssref/css3_pr_transform.asp">Transformaciones</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="http://selectivizr.com/">selectivizr</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="https://github.com/pbakaus/transformie">Transformie</a></li>
+          <li><b>Polyfill: </b><a target="_blank" href="https://github.com/scottjehl/Respond">Respond</a></li>
+        </ul>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Recursos y Ejemplos
+        </h3>
+        
+<pre>
+Modernizer: http://modernizr.com/docs/#installing
+  Polyfills:
+    https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills
+
+Web Sockets:
+  Musica Colaborativa:
+    http://labs.dinahmoe.com/plink/# 
+
+  Paint:
+    http://paintwith.me/
+    http://connorhd.co.uk/project/pixelatr/
+
+Multimedia:
+  Audio: 
+    http://www.html5rocks.com/en/tutorials/webaudio/games/
+
+  CSS3 Filter Effects:
+    http://html5-demos.appspot.com/static/css/filters/index.html
+
+  Video: 
+    http://www.html5rocks.com/en/tutorials/getusermedia/intro/
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Recursos y Ejemplos
+        </h3>
+        
+<pre>
+  WebGL (Canvas 3D):
+    http://disc.uncontrol.com/
+    http://www.satine.org/research/webkit/snowleopard/snowstack.html
+
+  Canvas 3D con Video:
+    http://craftymind.com/factory/html5video/CanvasVideo.html
+
+Presentations:
+  ImpressJS:
+    http://bartaz.github.com/impress.js/#/bored
+
+  Deck JS:
+    http://imakewebthings.com/deck.js/
+
+  Reveal JS:
+    http://lab.hakim.se/reveal-js
+
+HTML5 en YouTube:
+  http://www.youtube.com/html5
+</pre>
+      </article>
+      
+      <article>
+        <h3>
+          Muchas Gracias!
+        </h3>
+
+        <span>
+          <br>
+          Julian Alessandro
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8em;">julian.alessandro@globallogic.com</span>
+          <br><br>
+          Matias Alvarez Duran
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8em;">matias.alvarez@globallogic.com</span>
+          <br>
+          <br>
+        </span>
+        
+        <ul>
+          <li>
+            <a target="_blank" href='http://www.globallogic.com'>www.globallogic.com</a>
+        </ul>
+      </article>
+
+    </section>
+
+  </body>
+</html>
