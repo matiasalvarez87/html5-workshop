@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>HTML5 - Modulo 2</title>
+
+    <meta charset='utf-8'>
+    <script src='slides/slides.js'></script>
+  </head>
+  
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-gl'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+      <article class='biglogo'>
+      </article>
+
+      <article id="caratula" class='fill right'>
+        <h1>
+          JavaScript();
+        </h1>
+		
+        <p>
+    
+		  <span style='font-size: 0.8em;'>
+			  <br>
+			  Julian Alessandro
+			  <br>
+			  Matias Alvarez Duran
+			  <br>
+			  <br>
+		  </span>
+          <span style='font-size: 0.6em;'>Octubre, 2012</span>
+        </p>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Agenda
+        </h3>
+        <ul>
+          <li>JavaScript OO</li>
+          <li>Herencia en JS</li>
+          <li>jQuery utils</li>
+          <li>Backbone</li>
+          <li>Marionette</li>
+          <li>Underscore</li>
+          <li>Namespaces</li>
+          <li>Manejo de Dependencias</li>
+          <li>Templates HTML</li>
+        </ul>
+      </article>
+
+      <article class="article-with-sublist">
+        <h3>
+          JavaScript OO
+        </h3>
+          <ul>
+            <br>
+            <li>JSON</li>
+            <ul>
+              <li>{atributo1: 'valor', metodo1: function(){}}</li>
+            </ul>
+            <li>Funciones</li>
+            <ul>
+              <li>Con una función se define el constructor de un objeto. Se pueden agregar atributos en el metodo o usando Prototype.</li>
+            </ul>
+            <li>new Object()</li>
+            <ul>
+              <li>Con esta llamada se crea un objeto, al cual se le pueden agregar atributos y funciones.</li>
+            </ul>
+          </ul>
+          <a target="_blank" href="http://killdream.github.com/blog/2011/10/understanding-javascript-oop/">Understanding JS OOP</a>
+      </article>
+
+      <article>
+        <h3>
+          JavaScript OO - JSON Ejemplo
+        </h3>
+          <pre>
+var rectanguloLit = { 
+    lado1 : 10,
+    lado2 : 20,
+    area: function() {
+        return this.lado1 * this.lado2;
+    },
+    perimetro: function() {
+        return (this.lado1 * 2) + (this.lado2 * 2);
+    }
+};
+          </pre>
+          <a target="_blank" href="http://jsfiddle.net/tPLhF/">http://jsfiddle.net/tPLhF/</a>
+      </article>
+
+      <article>
+        <h3>
+          JavaScript OO - Función
+        </h3>
+          <pre>
+var RectanguloFun = function() {
+    this.lado1 = 10;
+    this.lado2 = 20;
+};
+
+RectanguloFun.prototype.area = function() {
+    return this.lado1 * this.lado2;
+};
+
+RectanguloFun.prototype.perimetro = function() {
+    return (this.lado1 * 2) + (this.lado2 * 2);
+};
+          </pre>
+          <a target="_blank" href="http://jsfiddle.net/XDU6C/">http://jsfiddle.net/XDU6C/</a>
+      </article>
+
+      <article>
+        <h3>
+          JavaScript OO - new Object()
+        </h3>
+          <pre>
+var rectanguloObj = new Object();
+rectanguloObj.lado1 = 10;
+rectanguloObj.lado2 = 20;
+rectanguloObj.area = function() {
+    return this.lado1 * this.lado2;
+};
+
+rectanguloObj.perimetro = function() {
+    return (this.lado1 * 2) + (this.lado2 * 2);
+};
+          </pre>
+          <a target="_blank" href="http://jsfiddle.net/HQr7e/">http://jsfiddle.net/HQr7e/</a>
+      </article>
+
+      <article class="article-with-sublist">
+        <h3>
+          Herencia en JS
+        </h3>
+          <ul>
+            <li>Para simular herencia (JS no lo provee en forma nativa) se utiliza la propiedad prototype</li>
+            <li>Hay librerias que permiten simular la herencia en forma mas simple (underscore, jQuery)</li>
+            <li>La referencia a la super clase debe ser creada en forma explicita</li>
+            <li>Ejemplo de herencia</li>
+            <ul><li><a target="_blank" href="http://jsfiddle.net/Melkor668/MuefF/">http://jsfiddle.net/Melkor668/MuefF/</a></li></ul>
+            <li>Invocación de métodos del padre (super)</li>
+            <ul><li><a target="_blank" href="http://jsfiddle.net/Melkor668/d25ya/2/">http://jsfiddle.net/Melkor668/d25ya/2/</a></li></ul>
+          </ul>
+      </article>
+
+      <article class="article-with-sublist">
+        <h3>
+          jQuery utils
+        </h3>
+        <br>
+          <ul>
+            <li><b><a target="_blank" href="http://api.jquery.com/jQuery.proxy/">$.proxy()</a></b>: </li>
+            <ul><li>Permite especificar un contexto en el cual se invocará una función. <a target="_blank" href="http://jsfiddle.net/vUhjv/">Ejemplo</a></li></ul>
+            <li><b><a target="_blank" href="http://api.jquery.com/promise/">$.promise()</a></b>: </li>
+            <ul><li>Devuelve un objeto Promise que es invocado cuando se finalizan las acciones sobre una cola. <a target="_blank" href="http://api.jquery.com/promise/">Ejemplo</a></li></ul>
+            <li><b><a target="_blank" href="http://api.jquery.com/category/deferred-object/">Deferred Object</a></b>: </li>
+            <ul><li>Permite encadenar funciones en colas de callbacks. Invocarlas y observar el estado de las respuestas. <a target="_blank" href="http://jsfiddle.net/edgk7/">Ejemplo</a></li></ul>
+          </ul>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          <a target="_blank" href="http://backbonejs.org/">Backbone JS</a>
+        </h3>
+        <br><br>
+          <ul>
+            <li>Permite desarrollar <b>aplicaciones single-page</b></li>
+            <li>Provee una estructuración de los archivos JS</li>
+            <li>Brinda clases base para <b>Modelos</b>, <b>Colecciones</b> y <b>Vistas</b></li>
+            <li>Permite escuchar y lanzar <b>eventos custom</b></li>
+            <li>La información se representa con instancias de modelo, cuando la misma cambia, se lanza un evento <b>change</b></li>
+            <li>Las <b>vistas</b> que muestran el estado del objeto son <b>notificadas</b> para que actualicen la información mostrada</li>
+            <li>Permite conectar nuestros modelos y colecciones con APIs RESTful JSON</li>
+          </ul>
+      </article>
+
+      <article>
+        <h3>
+          <a target="_blank" href="http://derickbailey.github.com/backbone.marionette/">Marionette</a>
+        </h3>
+        <br><br>
+          <ul>
+            <li>Ayuda a simplificar el desarrollo de grandes aplicaciones hechas con Backbone JS</li>
+            <li>Provee una colección de patrones de diseño</li>
+            <li>Reduce el código boilerplate en las Views</li>
+            <li>Provee Regions, Layouts, CompositeViews y ItemViews</li>
+          </ul>
+      </article>
+
+      <article>
+        <h3>
+          <a target="_blank" href="http://underscorejs.org">Underscore JS</a>
+        </h3>
+        <br><br>
+          <ul>
+            <li>Provee features del estilo de <b>programación funcional</b></li>
+            <li>Funciones map, select, invoke</li>
+            <li>Provee un <b>motor de template</b>: <br>_.template( htmlMarkup, { name: 'Pepe' } ) <a target="_blank" href="http://jsfiddle.net/Melkor668/LnURf/">Ejemplo</a></li>
+            <li>En browsers modernos (forEach, map, reduce, filter, etc) se <b>delegan a las implementaciones nativas</b></li>
+          </ul>
+      </article>
+
+      <article>
+        <h3>
+          Namespaces
+        </h3>
+        <br><br>
+          <ul>
+            <li>Util para modularizar la creacion de clases</li>
+            <li>No Existe en JS, se la debe simular, colgando la definicion de las clases de window (o global)</li>
+            <li>Buena practica: Definir sub-contextos dentro de Window</li>
+          </ul>
+          <br>
+          <a target="_blank" href="http://jsfiddle.net/Melkor668/U5pYn/">http://jsfiddle.net/Melkor668/U5pYn/</a>
+      </article>
+
+      <article>
+        <h3>
+          Manejo de Dependencias
+        </h3>
+        <br>
+          <ul>
+            <li>Se utilizan librerias para poder modularizar el codigo en diferentes archivo (tanto JS como HTML)</li>
+            <li><a href="http://requirejs.org/" target="_blank">RequireJS</a>: script loader para carga en forma paralela de multiples archivos JS</li>
+            <br>
+            <li><a href="http://labjs.com/" target="_blank">LABjs</a>: otro script loader.</li>
+            <li><a href="http://www.commonjs.org/" target="_blank">CommonJS</a>: Especificación e implementación para crear dependencias con JS</li>
+          </ul>
+      </article>
+
+      <article class="smaller article-with-sublist">
+        <h3>
+          Templates HTML
+        </h3>
+        
+          <ul>
+            <li>Tags 'script' con referencias a los archivos con template:</li>
+            <ul>
+              <li>Se genera una linea de 'script' por cada template.</li>
+              <li>Se sobrecarga el DOM con los templates aunque no esten siendo usados.</li>
+              <li>Se cargan todos los archivos al inicio.</li>
+            </ul>
+<br>
+            <li>Pedido de archivos con requireJS: </li>
+            <ul>
+              <li>Se piden los templates a medida que se necesitan.</li>
+              <li>Se genera overhead por cada transicion que haya.</li>
+            </ul>
+<br>
+            <li>Archivo con templates en (forma de String) precompilados:</li>
+            <ul>
+              <li>Se puede simular la estructura de directorios en JSON.</li>
+              <li>No se sobrecarga el DOM.</li>
+              <li>Se hace un solo pedido para todos los templates.</li>
+            </ul>
+          </ul>
+      </article>
+
+      <article>
+        <h3>
+          Muchas Gracias!
+        </h3>
+
+        <span>
+          <br>
+          Julian Alessandro
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8em;">julian.alessandro@globallogic.com</span>
+          <br><br>
+          Matias Alvarez Duran
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8em;">matias.alvarez@globallogic.com</span>
+          <br>
+          <br>
+        </span>
+        
+        <br><br>
+            <a target="_blank" href='http://www.globallogic.com'>www.globallogic.com</a>
+      </article>
+
+    </section>
+
+  </body>
+</html>

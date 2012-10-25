@@ -381,17 +381,18 @@ Modernizr.load({
           JavaScript OO - JSON Ejemplo
         </h3>
           <pre>
-var rectangulo = { 
-  lado1 : 10,
-  lado2 : 20,
-  area: function() {
-    return lado1 * lado2;
-  },
-  perimetro: function() {
-    return (lado1 * 2) + (lado2 * 2);
-  }
-}
+var rectanguloLit = { 
+    lado1 : 10,
+    lado2 : 20,
+    area: function() {
+        return this.lado1 * this.lado2;
+    },
+    perimetro: function() {
+        return (this.lado1 * 2) + (this.lado2 * 2);
+    }
+};
           </pre>
+          <a target="_blank" href="http://jsfiddle.net/tPLhF/">http://jsfiddle.net/tPLhF/</a>
       </article>
 
       <article>
@@ -399,19 +400,20 @@ var rectangulo = {
           JavaScript OO - Función
         </h3>
           <pre>
-var rectangulo = function() {
-  this.lado1 = 10;
-  this.lado2 = 20;
+var RectanguloFun = function() {
+    this.lado1 = 10;
+    this.lado2 = 20;
 };
 
-rectangulo.prototype.area = function() {
-  return lado1 * lado2;
+RectanguloFun.prototype.area = function() {
+    return this.lado1 * this.lado2;
 };
 
-rectangulo.prototype.perimetro = function() {
-  return (lado1 * 2) + (lado2 * 2);
+RectanguloFun.prototype.perimetro = function() {
+    return (this.lado1 * 2) + (this.lado2 * 2);
 };
           </pre>
+          <a target="_blank" href="http://jsfiddle.net/XDU6C/">http://jsfiddle.net/XDU6C/</a>
       </article>
 
       <article>
@@ -419,17 +421,18 @@ rectangulo.prototype.perimetro = function() {
           JavaScript OO - new Object()
         </h3>
           <pre>
-var rectangulo = new Object();
-rectangulo.lado1 = 10;
-rectangulo.lado2 = 20;
-rectangulo.area = function() {
-  return lado1 * lado2;
+var rectanguloObj = new Object();
+rectanguloObj.lado1 = 10;
+rectanguloObj.lado2 = 20;
+rectanguloObj.area = function() {
+    return this.lado1 * this.lado2;
 };
 
-rectangulo.perimetro = function() {
-  return (lado1 * 2) + (lado2 * 2);
+rectanguloObj.perimetro = function() {
+    return (this.lado1 * 2) + (this.lado2 * 2);
 };
           </pre>
+          <a target="_blank" href="http://jsfiddle.net/HQr7e/">http://jsfiddle.net/HQr7e/</a>
       </article>
 
       <article class="smaller">
