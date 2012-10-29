@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>HTML5 - Modulo 2</title>
+
+    <meta charset='utf-8'>
+    <script src='slides/slides.js'></script>
+  </head>
+  
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-gl'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+      <article class='biglogo'>
+      </article>
+
+      <article id="caratula" class='fill right'>
+        <h1 style="visibility: hidden;">
+          Groovy on Grails
+        </h1>
+		
+        <p>
+          <img style="left: 50px; top: 200px; width: 60%;" src='slides/images/grails.jpg'>
+		  <span style='font-size: 0.8em;'>
+			  <br>
+			  Julian Alessandro
+			  <br>
+			  Matias Alvarez Duran
+        <br>
+        Alan
+			  <br>
+			  <br>
+		  </span>
+          <span style='font-size: 0.6em;'>Octubre, 2012</span>
+        </p>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Agenda
+        </h3>
+        <ul>
+          <li>Que es Groovy?</li>
+          <li>Clases en Groovy</li>
+          <li>Java vs Groovy</li>
+          <li>Que es Grails?</li>
+          <li>Grails Stack</li>
+          <li>Convention Over Configuration</li>
+          <li>Plugins</li>
+          <li>GORM</li>
+          <li>Artifacts</li>
+          <li>Demo</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Que es Groovy?
+        </h3>
+          <ul>
+            <br><br>
+            <li>Lenguaje dinámico para la JVM</li>
+            <li>Inspirado en Smalltalk, Phyton, Ruby, etc.</li>
+            <li>Se integra con Java (Se puede tener codigo java y groovy junto)</li>
+          </ul>
+          <br>
+          <a target="_blank" href="http://groovy.codehaus.org">Sitio Oficial</a>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Clases en Groovy
+        </h3>
+          <pre>
+class Person {
+    static personCounter = 0
+    def age, name // this creates setter and getter methods
+    private alive
+
+    def die() {
+        alive = false
+        println "$name has died at the age of $age."
+        alive
+    }
+
+    def kill(anotherPerson) {
+        println "$name is killing $anotherPerson.name."
+        anotherPerson.die()
+    }
+    def isStillAlive() {
+        alive
+    }
+    def getYearOfBirth() {
+        new Date().year - age
+    }
+}
+          </pre>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Clases en Groovy
+        </h3>
+          <ul>
+            <br>
+            <li>Getters y Setters dinámicos</li>
+            <li>Constructores dinámicos</li>
+            <li>Definición de variables sin tipar</li>
+            <li>Definición de métodos sin tipar</li>
+            <li>Última sentencia del método es el return</li>
+            <li>Sin separadores de líneas ";"</li>
+            <li>Invocación a métodos sin paréntesis</li>
+            <li>Métodos públicos por defecto</li>
+            <li>"def" no es parte de la signatura, es el tipo de valor que retorna</li>
+          </ul>
+          <br>
+          <a target="_blank" href="http://groovy.codehaus.org/Beginners+Tutorial">Getting started</a>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          <b>Java</b> vs Groovy
+        </h3>
+          <pre>
+public class Persona {
+  private String nombre;
+  private String apellido;
+  private Integer edad;
+  private List<String> direcciones;
+
+  public String getNombre() { return nombre; }
+  public void setNombre(String nombre) { this.nombre = nombre; }
+  public String getApellido() { return apellido; }
+  public void setApellido(String apellido) { this.apellido = apellido; }
+  public Integer getEdad() { return edad; }
+  public void setEdad(Integer edad) { this.edad = edad; }
+  public List<String> getDirecciones() { return direcciones; }
+  public void setDirecciones(List<String> direcciones) { this.direcciones = direcciones; }
+  public static void main(String[] args) {
+    Persona persona = new Persona();
+    persona.setNombre("Matias");
+    persona.setApellido("Alvarez");
+    persona.setEdad(25);
+    persona.setDirecciones(new ArrayList<String>());
+    persona.getDirecciones().add("La plata 324, entre 8 y 9");
+    System.out.println(persona);
+  }
+}
+          </pre>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Java vs <b>Groovy</b>
+        </h3>
+          <pre>
+class Persona {
+  def nombre
+  def apellido
+  def edad
+  def direcciones //def direcciones = []
+
+  def main(args) {
+    def persona = new Persona(nombre:"Matias", apellido:"Alvarez")
+    persona.edad = 25;
+    persona.direcciones = []
+    persona.direcciones << "La plata 324, entre 8 y 9"
+    println persona
+  }
+}
+          </pre>
+      </article>
+
+      <article>
+        <h3>
+          Que es Grails?
+        </h3>
+          <ul>
+            <br>
+            <li>Framework web (MVC) de desarrollo rapido (RAD - rapid application development)</li>
+            <li>Stack completo de desarrollo, desde el ORM hasta la vista</li>
+            <li>Basado en tecnologías existentes, probadas y standars como spring, hibernate, sitemesh, tomcat, etc</li>
+            <li>Tiene un potente sistema de plugins y sistema de entornos en runtime</li>
+          </ul>
+          <br>
+          <a target="_blank" href="http://grails.org/">The Search is Over</a>
+      </article>
+
+      <article>
+        <h3>Grails Stack</h3>
+        <div style="text-align: center;">
+          <img style="height: 500px;" src="slides/images/stack.png">
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          Convention Over Configuration
+        </h3>
+          <ul>
+            <br>
+            <li>Convención sobre configuración. DRYS</li>
+            <li>Manteniendo la convención no hace falta configurar casi nada</li>
+            <li>Cada artefacto tiene su lugar dentro de una estructura de directorios</li>
+            <li>Se pueden crear clases de dominio, servicios, controllers, si necesidad de configuración y/o anotaciones</li>
+          </ul>
+          <br>
+          <a target="_blank" href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a>
+      </article>
+
+      <article>
+        <h3>
+          Convention Over Configuration
+        </h3>
+        <div style="text-align: center;">
+          <img style="height: 500px;" src="slides/images/COC.gif">
+        </div>
+      </article>
+
+      <article class="article-with-sublist">
+        <h3><a href="http://grails.org/plugins/" target="_blank">Plugins</a></h3>
+        <ul>
+          <br>
+          <li>Existe una gran cantidad de plugins desarrollados por la comunidad</li>
+          <li>Se integran fácilmente con las aplicaciones</li>
+          <li>Algunos ejemplos:</li>
+          <ul>
+            <li>Mensajería, Mails, Testing, Schedulers, Scaffolding, Backbone, etc.</li>
+          </ul>
+          <li>Se pueden crear fácilmente nuestros propios plugins</li>
+          <li>La estructura de directorios de los plugins es muy similar</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>GORM</h3>
+        <br>
+        <ul>
+          <li>Es el ORM de grails (Groovy Object Relational Mapping)</li>
+          <li>Casi toda la configuración es por convención</li>
+          <li>CRUD out of the box</li>
+          <li>Finders dinámicos</li>
+          <li>Criterias, Named Queries, HQL, etc.</li>
+        </ul>
+        <br>
+        <a target="_blank" href="https://gist.github.com/3973918">Ejemplo</a>
+      </article>
+
+      <article>
+        <h3>
+          Muchas Gracias!
+        </h3>
+
+        <span>
+          <br>
+          Julian Alessandro
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8em;">julian.alessandro@globallogic.com</span>
+          <br><br>
+          Matias Alvarez Duran
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8em;">matias.alvarez@globallogic.com</span>
+          <br>
+          <br>
+        </span>
+        
+        <br><br>
+            <a target="_blank" href='http://www.globallogic.com'>www.globallogic.com</a>
+      </article>
+
+    </section>
+
+  </body>
+</html>
