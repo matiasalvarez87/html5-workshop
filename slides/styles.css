@@ -96,10 +96,6 @@ body {
   padding: 40px 160px;
 }
 
-.biglogo {
-
-}
-
 .slides.template-default > article:not(.nobackground):not(.biglogo) {
   background: url(images/gl-logo-small.png) 710px 625px no-repeat;  
   
@@ -157,6 +153,16 @@ body {
 }
 
 /* Slide styles */
+
+.slides.template-default > article.biglogo {
+  background: white url(images/250x250.png) 50% 50% no-repeat;
+}
+
+.slides.template-gl > article.biglogo {
+  background: white url(images/250x250.png) 50% 50% no-repeat;
+
+  background-size: 400px;
+}
 
 /* Slides */
 
