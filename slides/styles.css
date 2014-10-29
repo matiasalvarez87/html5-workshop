@@ -96,6 +96,10 @@ body {
   padding: 40px 160px;
 }
 
+.biglogo {
+
+}
+
 .slides.template-default > article:not(.nobackground):not(.biglogo) {
   background: url(images/gl-logo-small.png) 710px 625px no-repeat;  
   
@@ -103,8 +107,8 @@ body {
 } 
 
 .slides.template-gl > article:not(.nobackground):not(.biglogo) {
-  background: url(images/gl-colorbar.png) 0 600px repeat-x,
-              url(images/gl-logo.gif) 640px 625px no-repeat;
+  background: url(images/colorbar.png) 0 600px repeat-x,
+              url(images/143x59.png) 600px 605px no-repeat;
 
   background-size: 100%, 225px;  
 
@@ -153,16 +157,6 @@ body {
 }
 
 /* Slide styles */
-
-.slides.template-default article.biglogo {
-  background: white url(images/gl-logo.gif) 50% 50% no-repeat;
-}
-
-.slides.template-gl article.biglogo {
-  background: white url(images/gl-logo.gif) 50% 50% no-repeat;
-
-  background-size: 600px;
-}
 
 /* Slides */
 
